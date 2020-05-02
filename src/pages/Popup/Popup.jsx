@@ -35,14 +35,12 @@ class Popup extends React.Component {
     await axios.post('http://localhost:3010/api/tracks', this.state)
   }
 
-
   render() {
     return (
       <div className="App" >
         <header className="App-header">
-          <h1>{this.state.trackName}</h1>
-          {/* <img src={logo} className="App-logo" alt="logo" /> */}
-          <button onClick={this.saveClick}>Save this Track</button>
+          <p className="trackName">{this.state.trackName}</p>
+          <button onClick={this.saveClick}>Save to my Queue</button>
           <p>{this.state.status}</p>
         </header>
       </div>

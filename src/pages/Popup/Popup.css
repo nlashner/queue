@@ -14,7 +14,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: black;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -26,6 +26,12 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.trackName{
+  margin: 20px;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 @keyframes App-logo-spin {
