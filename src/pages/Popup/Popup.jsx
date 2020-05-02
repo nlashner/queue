@@ -2,45 +2,37 @@ import React from 'react';
 import logo from '../../assets/img/logo.svg';
 import Greetings from '../../containers/Greetings/Greetings';
 import './Popup.css';
+import axios from 'axios'
 
 class Popup extends React.Component {
   constructor() {
     super()
     this.state = {
-      url: '',
-      title: '',
-      status: ''
+      trackUrl: '',
+      trackName: '',
+      // status: ''
     }
     this.saveClick = this.saveClick.bind(this)
   }
 
-  async saveClick() {
-    let math = Math.floor(Math.random() * Math.floor(188))
+  async componentDidMount() {
     let app = this
 
-    // await chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-    //   let activeWindow = tabs[0]
-    //   let url = activeWindow.url
-    //   let title = activeWindow.title
+    await chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+      let activeWindow = tabs[0]
+      let url = activeWindow.url
+      let name = activeWindow.title
 
-    //   app.setState({
-    //     status: 'saved!',
-    //     url: url,
-    //     title: title,
-    //   })
-    // })
-
-    const request = new XMLHttpRequest()
-    await request.open('GET', 'https://cat-fact.herokuapp.com/facts', true)
-    request.onload = function () {
-      const data = JSON.parse(this.response)
-      const fact = data.all[math].text
       app.setState({
-        status: fact
+        trackUrl: url,
+        trackName: name
       })
-    }
-    request.send()
-    console.log(this.state)
+    })
+
+  }
+
+  async saveClick() {
+    await axios.post('http://localhost:3010/api/tracks', this.state)
   }
 
 
@@ -48,7 +40,8 @@ class Popup extends React.Component {
     return (
       <div className="App" >
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
+          <h1>{this.state.trackName}</h1>
+          {/* <img src={logo} className="App-logo" alt="logo" /> */}
           <button onClick={this.saveClick}>Save this Track</button>
           <p>{this.state.status}</p>
         </header>
