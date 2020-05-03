@@ -16,6 +16,7 @@ class Popup extends React.Component {
     }
     this.saveClick = this.saveClick.bind(this)
     this.getQueue = this.getQueue.bind(this)
+    this.clearQueue = this.clearQueue.bind(this)
   }
 
   async componentDidMount() {
@@ -60,9 +61,8 @@ class Popup extends React.Component {
     this.setState({
       tracks: []
     })
+    console.log('in clear', this.state)
   }
-
-
 
   render() {
     return (
@@ -72,7 +72,7 @@ class Popup extends React.Component {
           {this.state.tracks.length
 
             ?
-            <Queue tracks={this.state.tracks} />
+            <Queue tracks={this.state.tracks} clearQueue={this.clearQueue} />
 
             :
             <div>
@@ -100,9 +100,7 @@ class Popup extends React.Component {
             </div>
           }
 
-
-
-          {/* <a onClick={this.}>See my Queue</a> */}
+          <a href="http://localhost:3010/" target="_blank">go to Queue home</a>
 
         </header>
       </div>

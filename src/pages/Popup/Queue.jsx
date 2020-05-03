@@ -3,23 +3,33 @@ import './Popup.css';
 
 const Queue = (props) => {
 
-  const { tracks } = props
+  const { tracks, clearQueue } = props
+
+  console.log('queue props', props)
+
 
   return (
 
-    <div className="tracks">
+    <div>
+      <div className="tracks">
+        {
+          tracks.map(track => {
 
-      {
-        tracks.map(track => {
+            return (
+              <div className="singleTrack">
+                <img src={track.trackImgUrl} className="trackImg" alt="trackIcon"></img>
+                <a href={track.trackUrl} target="_blank">{track.trackName}</a>
+              </div>
+            )
+          })
+        }
+      </div>
 
-          return (
-            <div className="singleTrack">
-              <a href={track.trackUrl} target="_blank">{track.trackName}</a>
-            </div>
-          )
-        })
-      }
-
+      <button type="button"
+        className="button"
+        onClick={clearQueue} >
+        Back
+      </button>
     </div>
   )
 }
