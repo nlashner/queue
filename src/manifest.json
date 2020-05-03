@@ -6,6 +6,7 @@
   },
   "permissions": [
     "tabs",
+    "contextMenus",
     "http://localhost:8000/*"
   ],
   "browser_action": {
