@@ -2,6 +2,7 @@ import React from 'react';
 import './Popup.css';
 import axios from 'axios'
 import Queue from './Queue'
+import qlogoWhite from '../../assets/img/qlogoWhite.png'
 
 
 
@@ -69,6 +70,10 @@ class Popup extends React.Component {
       <div className="App" >
         <header className="App-header">
 
+          <div className="logobox">
+            <img src={qlogoWhite} alt="logo" className="logo"></img>
+          </div>
+
           {this.state.tracks.length
 
             ?
@@ -76,7 +81,7 @@ class Popup extends React.Component {
 
             :
             <div>
-              <img src="https://cdn0.iconfinder.com/data/icons/music-86/512/music04-512.png" className="image" alt="track"></img>
+              {/* <img src="https://cdn0.iconfinder.com/data/icons/music-86/512/music04-512.png" className="image" alt="track"></img> */}
 
 
               <p className="trackName">{this.state.trackName}</p>
@@ -100,7 +105,7 @@ class Popup extends React.Component {
             </div>
           }
 
-          <a href="http://localhost:3010/" target="_blank">go to Queue home</a>
+          <a href="http://localhost:3010/" target="_blank" className="gohome">go to Queue home</a>
 
         </header>
       </div>

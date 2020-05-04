@@ -63,7 +63,7 @@ button {
   text-decoration:none;
   font-family:'Roboto',sans-serif;
   font-weight:500;
-  font-size: 15px;
+  font-size: 13px;
   color:#FFFFFF;
   text-align:center;
   transition: all 0.2s;
@@ -78,8 +78,25 @@ button:hover {
 .buttonDiv{
   display: flex;
   justify-content: space-evenly;
-  margin: 10px
+  margin: 50px
 }
+
+.logobox{
+  display: flex;
+  align-content: left;
+}
+
+.logo{
+  height: 20px;
+  display: flex;
+  padding: 20px;
+  align-content: left;
+}
+
+.gohome{
+  padding: 10px
+}
+
 
 
 /* queue */
@@ -88,6 +105,7 @@ button:hover {
   display: flex;
   flex-direction: column;
   align-items: left;
+  padding: 20px
 }
 
 .trackImg{
