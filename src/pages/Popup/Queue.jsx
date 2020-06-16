@@ -17,8 +17,8 @@ const Queue = (props) => {
 
             return (
               <div className="singleTrack">
-                <img src={track.trackImgUrl} className="trackImg" alt="trackIcon"></img>
-                <a href={track.trackUrl} target="_blank">{track.trackName}</a>
+                <img src={track.imageURL} className="trackImg" alt="trackIcon"></img>
+                <a href={track.trackURL} target="_blank">{track.trackName}</a>
               </div>
             )
           })
