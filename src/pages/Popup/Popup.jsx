@@ -40,9 +40,9 @@ class Popup extends React.Component {
   }
 
   async saveClick() {
-    await axios.post('http://localhost:3010/api/tracks', {
+    await axios.post('http://localhost:8080/api/tracks', {
       trackName: this.state.trackName,
-      trackUrl: this.state.trackUrl
+      trackURL: this.state.trackUrl
     })
     this.setState({
       status: 'Saved!'
@@ -51,7 +51,7 @@ class Popup extends React.Component {
 
 
   async getQueue() {
-    const data = await axios.get('http://localhost:3010/api/tracks')
+    const data = await axios.get('http://localhost:8080/api/tracks')
     const tracks = data.data
     this.setState({
       tracks: tracks
@@ -105,7 +105,7 @@ class Popup extends React.Component {
             </div>
           }
 
-          <a href="http://localhost:3010/" target="_blank" className="gohome">go to Queue home</a>
+          <a href="http://localhost:8080/" target="_blank" className="gohome">go to Queue home</a>
 
         </header>
       </div>
